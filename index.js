@@ -1,28 +1,30 @@
-// import express and http
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
-const configureSocketIO = require('./socketIOConfig.js');
-const cors = require('cors')
+const cors = require('cors');
 
-// import configureSocketIO from "./socketIOConfig"
 const app = express();
 const server = http.createServer(app);
-app.use(cors());
-const port = process.env.port || 8800;
+
+// Replace this with your actual frontend origin
+const frontendOrigin = 'https://speedcraft-jwdb-git-multitype-dev-yogeshkumar24s-projects.vercel.app';
+
+app.use(cors({
+  origin: frontendOrigin,
+  methods: ['GET', 'POST'],
+}));
 
 const io = new Server(server, {
-  cors: {  
-    origin: 'https://speedcraft-jwdb-git-multitype-dev-yogeshkumar24s-projects.vercel.app/',
-    methods: ['GET','POST']
+  cors: {
+    origin: frontendOrigin,
+    methods: ['GET', 'POST'],
   },
 });
 
+const configureSocketIO = require('./socketIOConfig.js');
+configureSocketIO(io);
 
-
-configureSocketIO(io); 
-    
-
+const port = process.env.PORT || 8800;
 server.listen(port, () => {
-  console.log('Server Started');
+  console.log(`Server started on port ${port}`);
 });
