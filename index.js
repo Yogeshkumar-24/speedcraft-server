@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 
 // Replace this with your actual frontend origin
-const frontendOrigin = 'https://speedcraft-jwdb-git-multitype-dev-yogeshkumar24s-projects.vercel.app';
+const frontendOrigin = 'https://speedcraft.vercel.app';
 
 app.use(cors({
   origin: frontendOrigin,
