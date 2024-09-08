@@ -3,9 +3,9 @@ const { getRandomWords } = require('./words');
 
 const configureSocketIO = (io) => {
     const rooms = {};
-    const countdownTime = 1;
-    const MAX_ROOM_SIZE = 3; 
-    const NO_OF_WORDS = 2;
+    const countdownTime = 10;
+    const MAX_ROOM_SIZE = 6; 
+    const NO_OF_WORDS = 60;
     const socketToUsernameMap = new Map();
     
     io.on('connection', (socket) => {
