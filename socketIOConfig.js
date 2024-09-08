@@ -161,7 +161,16 @@ const configureSocketIO = (io) => {
         return shuffledWords.slice(0, count);
       };
 
+const app = express();
+const server = http.createServer(app);
+const io = socketIo(server, {
+  cors: {
+    origin: "http://localhost:3000", // Update this with the client URL or use "*" to allow all origins
+    methods: ["GET", "POST"]
+  }
+});
 
+app.use(cors());
     const rooms = {};
 
     const countdownTime = 10;
