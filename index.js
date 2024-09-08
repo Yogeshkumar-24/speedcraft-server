@@ -13,7 +13,7 @@ const port = process.env.port || 8800;
 
 const io = new Server(server, {
   cors: {  
-    origin: 'https://speedcraft.vercel.app',
+    origin: 'http://localhost:3000/room',
     methods: ['GET','POST']
   },
 });
