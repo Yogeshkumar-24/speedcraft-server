@@ -13,7 +13,7 @@ const port = process.env.port || 8800;
 
 const io = new Server(server, {
   cors: {  
-    origin: 'https://speedcraft.vercel.app/',
+    origin: 'https://speedcraft-jwdb-git-multitype-dev-yogeshkumar24s-projects.vercel.app/',
     methods: ['GET','POST']
   },
 });
