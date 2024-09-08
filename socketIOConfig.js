@@ -161,9 +161,6 @@ const configureSocketIO = (io) => {
         return shuffledWords.slice(0, count);
       };
 
-const app = express();
-const server = http.createServer(app);
-
     const rooms = {};
 
     const countdownTime = 10;
